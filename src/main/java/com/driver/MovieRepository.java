@@ -53,7 +53,9 @@ public class MovieRepository {
        List<String> ans = Movie_pair.get(DirectorName);
        for(String s : ans)
        {
-        DBMovie.remove(s);
+           if(DBMovie.containsKey(s)) {
+               DBMovie.remove(s);
+           }
        }
        return  "Success";
     }
@@ -64,10 +66,11 @@ public class MovieRepository {
            List<String> ans = Movie_pair.get(s);
            for(String se : ans)
            {
-               DBMovie.remove(se);
+               if(DBMovie.containsKey(se)) {
+                   DBMovie.remove(se);
+               }
            }
        }
-       DBDirector = new HashMap<>();
        return "Success";
     }
 }
