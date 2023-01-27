@@ -21,6 +21,7 @@ public class MovieRepository {
     }
     public String addMovieDirectorPair(String MovieName,String DirectorName)
     {
+        Movie_pair.put(DirectorName,Movie_pair.getOrDefault(DirectorName,new ArrayList<>()));
         Movie_pair.get(DirectorName).add(MovieName);
         return "success";
     }
